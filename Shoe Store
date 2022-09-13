@@ -1,0 +1,39 @@
+-- Shoes for sale in Shoe Store
+
+CREATE TABLE shoe_store (id INTEGER PRIMARY KEY, name TEXT, brand TEXT, price INTEGER, category TEXT, rating Integer); 
+
+INSERT INTO shoe_store VALUES (1, "Pegasus Turbo Next Nature", "Nike", 150, "Running", 4.6);
+INSERT INTO shoe_store VALUES (2,"Air Fore 1 '07", "Nike", 110, "Lifestyle", 4.9);
+INSERT INTO shoe_store VALUES (3, "NMD_R1 V2", "Adidas", 150, "Lifestyle", 4.5);
+INSERT INTO shoe_store VALUES (4, "Fast-R NITRO Elite Fireglow", "Puma", 250, "Running", 4.4);
+INSERT INTO shoe_store VALUES (5, "Zoom Mercurial Vapor 15 Elite FG", "Nike", 250, "Soccer", 4.8);
+INSERT INTO shoe_store VALUES (6, "YEEZY BOOST 380", "Adidas", 230, "Lifestyle", 4.3);
+INSERT INTO shoe_store VALUES (7,"4DFWD 2", "adidas", 200, "Running", 4.6);
+INSERT INTO shoe_store VALUES (8, "Blazer Mid 77 Vintage", "Nike", 105, "Lifestyle", 4.4);
+INSERT INTO shoe_store VALUES (9, "React Infinity Run Flyknit 3", "Nike", 160, "Running", 4.8);
+INSERT INTO shoe_store VALUES (10, "Stan Smith", "Adidas", 70, "Lifestyle", 4.7);
+INSERT INTO shoe_store VALUES (11, "Suede Classic XXI", "Puma", 70, "lifestyle", 4.4);
+INSERT INTO shoe_store VALUES (12, "ULTRA Ultimate", "PUMA", 200, "Soccer", 4.5);
+INSERT INTO shoe_store VALUES (13, "ULTRABOOST 1.0", "Adidas", 200, "Lifestyle", 4.8);
+INSERT INTO shoe_store VALUES (14, "ULTRABOOST 22", "Adidas", 190, "Lifestyle", 4.7);
+INSERT INTO shoe_store VALUES (15, "COPA SENSE +", "Adidas", 275, "Soccer", 4.7);
+
+
+-- display the database
+SELECT * 
+FROM shoe_store;
+
+-- display the database by price
+SELECT *
+FROM shoe_store
+Order BY price;
+
+-- display the amount of models per brand that are sold in store
+SELECT brand, Count(*) as models
+FROM shoe_store
+GROUP BY brand;
+
+-- display the average price per shoe, per brand
+SELECT brand, ROUND(avg(price),0) as avg_price
+FROM shoe_store
+GROUP BY brand;
